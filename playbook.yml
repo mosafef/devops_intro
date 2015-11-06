@@ -2,5 +2,12 @@
 - hosts: all
   sudo: yes
   tasks:
-   - name: test
-     apt: name=emacs24 update_cache=yes
+
+   - name: update apt data
+     apt: update_cache=yes
+   
+   - name: Install list of packages
+     apt: name={{item}} state=present
+     with_items:
+     - openjdk-7-jdk
+     - emacs24
