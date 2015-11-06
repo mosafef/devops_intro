@@ -1,0 +1,6 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+   - name: test
+     apt: name=emacs24 update_cache=yes
